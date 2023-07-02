@@ -5,9 +5,11 @@ build:
     build:
       - PYTHON=python2 amazon-linux-extras install epel
       - yum -y install supervisor
+      - composer install
       - cp -p .env.example .env
+      - php artisan key:generate
 run:
   command: supervisord
   network:
-    port: 8080
+    port: 80
     env: APP_PORT
