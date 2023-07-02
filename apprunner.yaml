@@ -3,7 +3,7 @@ runtime: php81
 build:
   commands:
     build:
-      - build.sh
+      - ./build.sh
 run:
   command: supervisord
   network:
