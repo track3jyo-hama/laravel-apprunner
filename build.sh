@@ -19,18 +19,3 @@ source ~/.bash_profile
 
 # dependencies install
 composer install
-cp -p .env.example .env
-php artisan key:generate
-
-# Permission
-find ./storage -type d -exec chmod 775 {} \;
-find ./storage -type f -exec chmod 664 {} \;
-
-find ./bootstrap/cache -type d -exec chmod 775 {} \;
-find ./bootstrap/cache -type f -exec chmod 664 {} \;
-
-find ./storage -type d -exec chmod g+s {} \;
-find ./bootstrap/cache -type d -exec chmod g+s {} \;
-
-setfacl -R -d -m g::rwx ./storage
-setfacl -R -d -m g::rwx ./bootstrap/cache
